@@ -3,13 +3,13 @@
 # category: backend
 # tags: backend, backend-as-a-service, platform
 # logo: svgs/appwrite.svg
-# port: 3003
+# port: 80
 
 services:
   appwrite:
     image: appwrite/appwrite:2.0.0
     environment:
-      - SERVICE_URL_APPWRITE=/v1
+      - SERVICE_URL_APPWRITE_80=/v1
       - _APP_ENV=${_APP_ENV:-production}
       - _APP_USAGE_STATS=${_APP_USAGE_STATS:-enabled}
       - _APP_USAGE_PASS=$SERVICE_PASSWORD_CLICKHOUSE
@@ -238,7 +238,7 @@ services:
     image: appwrite/appwrite:2.0.0
     entrypoint: realtime
     environment:
-      - SERVICE_URL_APPWRITE=/v1/realtime
+      - SERVICE_URL_APPWRITE_80=/v1/realtime
       - _APP_ENV=${_APP_ENV:-production}
       - _APP_USAGE_STATS=${_APP_USAGE_STATS:-enabled}
       - _APP_STATS_USAGE_QUEUE_NAME=${_APP_STATS_USAGE_QUEUE_NAME:-v1-stats-usage}
